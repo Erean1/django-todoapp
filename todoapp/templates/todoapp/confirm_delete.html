@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirm Deletion {% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4 text-center" style="max-width: 500px;">
+        <h2 class="text-danger">Are you sure?</h2>
+        <p class="mb-4">Do you really want to delete <strong>{{ task.title }}</strong>? This action cannot be undone.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'todoapp:task_detail' task.id %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

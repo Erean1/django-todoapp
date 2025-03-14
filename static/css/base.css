@@ -1,0 +1,163 @@
+/* Navbar Stilleri */
+.navbar {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    animation: flameGlow 2s infinite alternate; /* Alev animasyonu */
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ffd700; /* Altın sarısı hover efekti */
+}
+
+/* Alev Animasyonu */
+@keyframes flameGlow {
+    0% {
+        color: #fff;
+        text-shadow: 
+            0 0 5px #ff4500, /* Turuncu parlama */
+            0 0 10px #ff8c00, /* Daha geniş turuncu */
+            0 0 20px #ff0000; /* Kırmızı alev efekti */
+    }
+    50% {
+        color: #ffd700;
+        text-shadow: 
+            0 0 10px #ff4500, 
+            0 0 20px #ff8c00, 
+            0 0 30px #ff0000, 
+            0 0 40px #ffa500; /* Daha yoğun turuncu */
+    }
+    100% {
+        color: #fff;
+        text-shadow: 
+            0 0 5px #ff4500, 
+            0 0 15px #ff8c00, 
+            0 0 25px #ff0000; 
+    }
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Hover Efekti: Alt Çizgi Animasyonu */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffd700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 70%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+/* Aktif Link için Stil */
+.navbar-nav .nav-link.active {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Toggler (Mobil Menü) */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    transform: rotate(90deg);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobil Menü Animasyonu */
+.navbar-collapse {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        background: #1e3c72;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    .navbar-nav .nav-link::after {
+        display: none; /* Mobil görünümde alt çizgi efektini kaldır */
+    }
+}
+
+/* Genel Sayfa Stilleri */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 200px); /* Navbar ve footer yüksekliğini hesaba katar */
+}
+
+.footer {
+    background-color: #2a5298;
+    color: #fff;
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+.footer h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}

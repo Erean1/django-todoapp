@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Create / Edit Task</h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <!-- Title Field -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-bold">Title:</label>
+                            {{ form.title }}
+                        </div>
+
+                        <!-- Content Field -->
+                        <div class="mb-3">
+                            <label for="content" class="form-label fw-bold">Content:</label>
+                            {{ form.content }}
+                        </div>
+
+                        <!-- Completed Checkbox -->
+                        <div class="form-check mb-3">
+                            {{ form.completed }}
+                            <label class="form-check-label fw-bold" for="completed">Completed</label>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'todoapp:home' %}" class="btn btn-outline-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save Task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
